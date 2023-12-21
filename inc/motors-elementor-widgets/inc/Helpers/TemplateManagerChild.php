@@ -5,26 +5,31 @@ namespace Motors_E_W\Helpers;
 use Elementor\Plugin;
 use Motors_E_W\Helpers\TemplateManager;
 
-
 class TemplateManagerChild extends TemplateManager {
-	private static $post_type    = 'listing_template';
-	private static $plural       = 'Listing Templates';
-	private static $single       = 'Listing Template';
+	private static $post_type = 'listing_template';
+	private static $plural = 'Listing Templates';
+	private static $single = 'Listing Template';
 	private static $setting_name = 'single_listing_template_van';
 	private static $data_for_select;
 
 	public static function init() {
+
 		self::motors_get_templates_list();
+
 		add_action( 'init', array( self::class, 'motors_register_post_type' ) );
-
+		add_action( 'wp_enqueue_scripts', array( self::class, 'remove_mew_button_component_script' ), 999 );
 		add_filter( 'me_van_car_settings_conf', array( self::class, 'motors_car_settings_conf' ) );
-
 		add_filter( 'wpcfto_field_mew-repeater-radio-van', array( self::class, 'motors_register_wpcfto_repeater_radio' ) );
 
 	}
 
-	public static function motors_register_wpcfto_repeater_radio() {
+	public static function remove_mew_button_component_script() {
+		wp_dequeue_script( 'mew-button-component' );
+		wp_deregister_script( 'mew-button-component' );
+	}
 
+
+	public static function motors_register_wpcfto_repeater_radio() {
 		return MOTORS_CHILD_ELEMENTOR_WIDGETS_PATH . '/inc/wpcfto/mew-repeater-radio-van.php';
 	}
 
@@ -46,11 +51,8 @@ class TemplateManagerChild extends TemplateManager {
 			'post_status'    => 'publish',
 			'posts_per_page' => - 1,
 		);
-
 		$posts = new \WP_Query( $args );
-
 		$for_select = array();
-
 		foreach ( $posts->posts as $post ) {
 			$for_select[] = array(
 				'post_id'   => $post->ID,
@@ -59,9 +61,7 @@ class TemplateManagerChild extends TemplateManager {
 				'view_link' => get_the_permalink( $post->ID ),
 			);
 		}
-
 		self::$data_for_select = $for_select;
-
 		wp_reset_postdata();
 	}
 
