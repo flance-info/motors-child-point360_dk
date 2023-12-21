@@ -31,6 +31,6 @@ add_filter(
 flance_write_log($global_conf);
 		return $global_conf;
 	},
-	41,
+	40,
 	1
 );

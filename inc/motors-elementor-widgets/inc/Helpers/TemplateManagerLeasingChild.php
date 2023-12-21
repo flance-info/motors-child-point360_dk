@@ -5,11 +5,12 @@ namespace Motors_E_W\Helpers;
 use Elementor\Plugin;
 use Motors_E_W\Helpers\TemplateManager;
 
-class TemplateManagerChild extends TemplateManager {
+class TemplateManagerLeasingChild extends TemplateManager {
+
 	private static $post_type = 'listing_template';
 	private static $plural = 'Listing Templates';
 	private static $single = 'Listing Template';
-	private static $setting_name = 'single_listing_template_van';
+	private static $setting_name = 'single_listing_template_leasing';
 	private static $data_for_select;
 
 	public static function init() {
@@ -18,8 +19,8 @@ class TemplateManagerChild extends TemplateManager {
 
 		add_action( 'init', array( self::class, 'motors_register_post_type' ) );
 		add_action( 'wp_enqueue_scripts', array( self::class, 'remove_mew_button_component_script' ), 999 );
-		add_filter( 'me_van_car_settings_conf', array( self::class, 'motors_car_settings_conf' ) );
-		add_filter( 'wpcfto_field_mew-repeater-radio-van', array( self::class, 'motors_register_wpcfto_repeater_radio' ) );
+		add_filter( 'me_leasing_car_settings_conf', array( self::class, 'motors_car_settings_conf' ) );
+		add_filter( 'wpcfto_field_mew-repeater-radio-leasing', array( self::class, 'motors_register_wpcfto_repeater_radio' ) );
 
 	}
 
@@ -30,13 +31,13 @@ class TemplateManagerChild extends TemplateManager {
 
 
 	public static function motors_register_wpcfto_repeater_radio() {
-		return MOTORS_CHILD_ELEMENTOR_WIDGETS_PATH . '/inc/wpcfto/mew-repeater-radio-van.php';
+		return MOTORS_CHILD_ELEMENTOR_WIDGETS_PATH . '/inc/wpcfto/mew-repeater-radio-leasing.php';
 	}
 
 	public static function motors_car_settings_conf( $conf ) {
 		$conf[ self::$setting_name ] = array(
 			'label'       => esc_html__( 'Van Listing Page Template', 'motors-child' ),
-			'type'        => 'mew-repeater-radio-van',
+			'type'        => 'mew-repeater-radio-leasing',
 			'description' => __( 'Select Van listing page template', 'motors-child' ),
 			'fields'      => self::$data_for_select,
 			'value'       => array_key_first( self::$data_for_select ),
@@ -64,7 +65,6 @@ class TemplateManagerChild extends TemplateManager {
 		self::$data_for_select = $for_select;
 		wp_reset_postdata();
 	}
-
 }
 
-TemplateManagerChild::init();
+TemplateManagerLeasingChild::init();

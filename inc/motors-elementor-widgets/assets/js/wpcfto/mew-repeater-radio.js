@@ -123,7 +123,7 @@ Vue.component('wpcfto_mew-repeater-radio-van', {
     
                 <div class="wpcfto-info-wrap">
                     <label>
-                        <input type="radio" name="selected_listing_template" v-model="selected" :value="field.post_id" @click="setSelected(field.post_id)" :checked="field.post_id == selected" />
+                        <input type="radio" :class="{'active': field.post_id == selected}" name="selected_listing_template" v-model="selected" :value="field.post_id" @click="setSelected(field.post_id)" :checked="field.post_id == selected" />
                        <div class="wpcfto_group_title" :class="{'active': field.post_id == selected}" v-html="field.title"></div>
                    </label> 
 
@@ -229,7 +229,7 @@ Vue.component('wpcfto_mew-repeater-radio-leasing', {
     
                 <div class="wpcfto-info-wrap">
                     <label>
-                        <input type="radio" name="selected_listing_template" v-model="selected" :value="field.post_id" @click="setSelected(field.post_id)" :checked="field.post_id == selected" />
+                        <input type="radio" :class="{'active': field.post_id == selected}" name="selected_listing_template" v-model="selected" :value="field.post_id" @click="setSelected(field.post_id)" :checked="field.post_id == selected" />
                        <div class="wpcfto_group_title" :class="{'active': field.post_id == selected}" v-html="field.title"></div>
                    </label> 
 
