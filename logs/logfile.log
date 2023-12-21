@@ -1,0 +1,40 @@
+ Array
+(
+    [single_listing_template] => Array
+        (
+            [label] => Van Listing Page Template
+            [type] => mew-repeater-radio-van
+            [description] => Select Van listing page template
+            [fields] => Array
+                (
+                    [0] => Array
+                        (
+                            [post_id] => 94819
+                            [title] => Listing Template #3
+                            [edit_link] => http://point360.local/wp-admin/post.php?post=94819&action=elementor
+                            [view_link] => http://point360.local/listing_template/listing-template-3/
+                        )
+
+                    [1] => Array
+                        (
+                            [post_id] => 94809
+                            [title] => Listing Template #2
+                            [edit_link] => http://point360.local/wp-admin/post.php?post=94809&action=elementor
+                            [view_link] => http://point360.local/listing_template/listing-template-2/
+                        )
+
+                    [2] => Array
+                        (
+                            [post_id] => 92074
+                            [title] => Listing Template #1
+                            [edit_link] => http://point360.local/wp-admin/post.php?post=92074&action=elementor
+                            [view_link] => http://point360.local/listing_template/listing-template-1/
+                        )
+
+                )
+
+            [value] => 0
+        )
+
+)
+

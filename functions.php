@@ -75,6 +75,6 @@
 //    }
 
 
-require_once 'inc/motors-elementor-widgets/loader.php';
+require_once 'inc/loader.php';
 
 

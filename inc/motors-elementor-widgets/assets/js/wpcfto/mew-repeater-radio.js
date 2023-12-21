@@ -1,4 +1,4 @@
-Vue.component('wpcfto_mew_repeater_radio', {
+Vue.component('wpcfto_mew-repeater-radio-van', {
     props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
     data: function () {
         return {
