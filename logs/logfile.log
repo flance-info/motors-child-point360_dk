@@ -3370,26 +3370,26 @@
                                 (
                                     [0] => Array
                                         (
-                                            [post_id] => 94820
+                                            [post_id] => 94826
                                             [title] => Listing Template #4
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94820&action=elementor
-                                            [view_link] => http://point360.local/?p=94820
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94826&action=elementor
+                                            [view_link] => http://point360.local/?p=94826
                                         )
 
                                     [1] => Array
                                         (
-                                            [post_id] => 94819
-                                            [title] => Listing Template #3
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94819&action=elementor
-                                            [view_link] => http://point360.local/?p=94819
+                                            [post_id] => 94825
+                                            [title] => Listing Template #6
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94825&action=elementor
+                                            [view_link] => http://point360.local/?p=94825
                                         )
 
                                     [2] => Array
                                         (
-                                            [post_id] => 94809
-                                            [title] => Listing Template #2
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94809&action=elementor
-                                            [view_link] => http://point360.local/?p=94809
+                                            [post_id] => 94824
+                                            [title] => Listing Template #5
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94824&action=elementor
+                                            [view_link] => http://point360.local/?p=94824
                                         )
 
                                     [3] => Array
@@ -3421,9 +3421,41 @@
                             [description] => Select Van listing page template
                             [fields] => Array
                                 (
+                                    [0] => Array
+                                        (
+                                            [post_id] => 94826
+                                            [title] => Listing Template #4
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94826&action=elementor
+                                            [view_link] => http://point360.local/?p=94826
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [post_id] => 94825
+                                            [title] => Listing Template #6
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94825&action=elementor
+                                            [view_link] => http://point360.local/?p=94825
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [post_id] => 94824
+                                            [title] => Listing Template #5
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94824&action=elementor
+                                            [view_link] => http://point360.local/?p=94824
+                                        )
+
+                                    [3] => Array
+                                        (
+                                            [post_id] => 92074
+                                            [title] => Listing Template #1
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=92074&action=elementor
+                                            [view_link] => http://point360.local/?p=92074
+                                        )
+
                                 )
 
-                            [value] => 
+                            [value] => 0
                         )
 
                 )
@@ -3442,9 +3474,41 @@
                             [description] => Select Leasing listing page template
                             [fields] => Array
                                 (
+                                    [0] => Array
+                                        (
+                                            [post_id] => 94826
+                                            [title] => Listing Template #4
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94826&action=elementor
+                                            [view_link] => http://point360.local/?p=94826
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [post_id] => 94825
+                                            [title] => Listing Template #6
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94825&action=elementor
+                                            [view_link] => http://point360.local/?p=94825
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [post_id] => 94824
+                                            [title] => Listing Template #5
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94824&action=elementor
+                                            [view_link] => http://point360.local/?p=94824
+                                        )
+
+                                    [3] => Array
+                                        (
+                                            [post_id] => 92074
+                                            [title] => Listing Template #1
+                                            [edit_link] => http://point360.local/wp-admin/post.php?post=92074&action=elementor
+                                            [view_link] => http://point360.local/?p=92074
+                                        )
+
                                 )
 
-                            [value] => 
+                            [value] => 0
                         )
 
                 )

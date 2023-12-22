@@ -6,7 +6,7 @@ use Elementor\Plugin;
 use Motors_E_W\Helpers\TemplateManager;
 
 class TemplateManagerChild extends TemplateManager {
-	private static $post_type = 'listing_template_van';
+	private static $post_type = 'listing_template';
 	private static $plural = 'Listing Templates';
 	private static $single = 'Listing Template';
 	private static $setting_name = 'single_listing_template_van';
@@ -35,41 +35,6 @@ class TemplateManagerChild extends TemplateManager {
 		if ( null === self::$selected_template_id ) {
 			self::$selected_template_id = array_key_first( self::$data_for_select );
 		}
-
-		// @codingStandardsIgnoreStart
-		$labels = array(
-			'name'               => __( self::$plural, 'motors-elementor-widgets' ),
-			'singular_name'      => __( self::$single, 'motors-elementor-widgets' ),
-			'add_new'            => __( 'Add New', 'motors-elementor-widgets' ),
-			'add_new_item'       => __( 'Add New ' . self::$single, 'motors-elementor-widgets' ),
-			'edit_item'          => __( 'Edit ' . self::$single, 'motors-elementor-widgets' ),
-			'new_item'           => __( 'New ' . self::$single, 'motors-elementor-widgets' ),
-			'all_items'          => __( 'All ' . self::$plural, 'motors-elementor-widgets' ),
-			'view_item'          => __( 'View ' . self::$single, 'motors-elementor-widgets' ),
-			'search_items'       => __( 'Search ' . self::$plural, 'motors-elementor-widgets' ),
-			'not_found'          => __( 'No ' . self::$plural . ' found', 'motors-elementor-widgets' ),
-			'not_found_in_trash' => __( 'No ' . self::$plural . '  found in Trash', 'motors-elementor-widgets' ),
-			'parent_item_colon'  => '',
-			'menu_name'          => __( self::$plural, 'motors-elementor-widgets' ),
-		);
-		// @codingStandardsIgnoreEnd
-
-		$args = array(
-			'labels'             => $labels,
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => false,
-			'show_in_nav_menus'  => false,
-			'query_var'          => true,
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => null,
-			'menu_icon'          => null,
-			'supports'           => array( 'title', 'editor' ),
-		);
-
-		register_post_type( self::$post_type, $args );
 
 	}
 	public static function motors_register_wpcfto_repeater_radio() {
