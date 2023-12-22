@@ -7,9 +7,9 @@ use Motors_E_W\Helpers\TemplateManager;
 
 class TemplateManagerLeasingChild extends TemplateManager {
 
-	private static $post_type = 'listing_template';
-	private static $plural = 'Listing Templates';
-	private static $single = 'Listing Template';
+	private static $post_type = 'listing_template_leasing';
+	private static $plural = 'Leasing Templates';
+	private static $single = 'Leasing Template';
 	private static $setting_name = 'single_listing_template_leasing';
 	private static $data_for_select;
 	public static $selected_template_id;
@@ -18,7 +18,7 @@ class TemplateManagerLeasingChild extends TemplateManager {
 
 		self::motors_get_templates_list();
 
-		add_action( 'init', array( self::class, 'motors_register_post_type_leasing' ) );
+		add_action( 'init', array( self::class, 'motors_register_post_type' ) );
 		add_action( 'wp_enqueue_scripts', array( self::class, 'remove_mew_button_component_script' ), 999 );
 		add_filter( 'me_leasing_car_settings_conf', array( self::class, 'motors_car_settings_conf' ) );
 		add_filter( 'wpcfto_field_mew-repeater-radio-leasing', array( self::class, 'motors_register_wpcfto_repeater_radio' ) );
@@ -30,13 +30,48 @@ class TemplateManagerLeasingChild extends TemplateManager {
 		wp_deregister_script( 'mew-button-component' );
 	}
 
-	public static function motors_register_post_type_leasing() {
+	public static function motors_register_post_type() {
 
 		self::$selected_template_id = stm_me_get_wpcfto_mod( self::$setting_name, null );
 
 		if ( null === self::$selected_template_id ) {
 			self::$selected_template_id = array_key_first( self::$data_for_select );
 		}
+
+		// @codingStandardsIgnoreStart
+		$labels = array(
+			'name'               => __( self::$plural, 'motors-elementor-widgets' ),
+			'singular_name'      => __( self::$single, 'motors-elementor-widgets' ),
+			'add_new'            => __( 'Add New', 'motors-elementor-widgets' ),
+			'add_new_item'       => __( 'Add New ' . self::$single, 'motors-elementor-widgets' ),
+			'edit_item'          => __( 'Edit ' . self::$single, 'motors-elementor-widgets' ),
+			'new_item'           => __( 'New ' . self::$single, 'motors-elementor-widgets' ),
+			'all_items'          => __( 'All ' . self::$plural, 'motors-elementor-widgets' ),
+			'view_item'          => __( 'View ' . self::$single, 'motors-elementor-widgets' ),
+			'search_items'       => __( 'Search ' . self::$plural, 'motors-elementor-widgets' ),
+			'not_found'          => __( 'No ' . self::$plural . ' found', 'motors-elementor-widgets' ),
+			'not_found_in_trash' => __( 'No ' . self::$plural . '  found in Trash', 'motors-elementor-widgets' ),
+			'parent_item_colon'  => '',
+			'menu_name'          => __( self::$plural, 'motors-elementor-widgets' ),
+		);
+		// @codingStandardsIgnoreEnd
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => false,
+			'show_in_nav_menus'  => false,
+			'query_var'          => true,
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'menu_icon'          => null,
+			'supports'           => array( 'title', 'editor' ),
+		);
+
+		register_post_type( self::$post_type, $args );
 
 	}
 
@@ -46,9 +81,9 @@ class TemplateManagerLeasingChild extends TemplateManager {
 
 	public static function motors_car_settings_conf( $conf ) {
 		$conf[ self::$setting_name ] = array(
-			'label'       => esc_html__( 'Van Listing Page Template', 'motors-child' ),
+			'label'       => esc_html__( 'Leasing Listing Page Template', 'motors-child' ),
 			'type'        => 'mew-repeater-radio-leasing',
-			'description' => __( 'Select Van listing page template', 'motors-child' ),
+			'description' => __( 'Select Leasing listing page template', 'motors-child' ),
 			'fields'      => self::$data_for_select,
 			'value'       => array_key_first( self::$data_for_select ),
 		);

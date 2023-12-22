@@ -3421,41 +3421,9 @@
                             [description] => Select Van listing page template
                             [fields] => Array
                                 (
-                                    [0] => Array
-                                        (
-                                            [post_id] => 94820
-                                            [title] => Listing Template #4
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94820&action=elementor
-                                            [view_link] => http://point360.local/?p=94820
-                                        )
-
-                                    [1] => Array
-                                        (
-                                            [post_id] => 94819
-                                            [title] => Listing Template #3
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94819&action=elementor
-                                            [view_link] => http://point360.local/?p=94819
-                                        )
-
-                                    [2] => Array
-                                        (
-                                            [post_id] => 94809
-                                            [title] => Listing Template #2
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94809&action=elementor
-                                            [view_link] => http://point360.local/?p=94809
-                                        )
-
-                                    [3] => Array
-                                        (
-                                            [post_id] => 92074
-                                            [title] => Listing Template #1
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=92074&action=elementor
-                                            [view_link] => http://point360.local/?p=92074
-                                        )
-
                                 )
 
-                            [value] => 0
+                            [value] => 
                         )
 
                 )
@@ -3469,46 +3437,14 @@
                 (
                     [single_listing_template_leasing] => Array
                         (
-                            [label] => Van Listing Page Template
+                            [label] => Leasing Listing Page Template
                             [type] => mew-repeater-radio-leasing
-                            [description] => Select Van listing page template
+                            [description] => Select Leasing listing page template
                             [fields] => Array
                                 (
-                                    [0] => Array
-                                        (
-                                            [post_id] => 94820
-                                            [title] => Listing Template #4
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94820&action=elementor
-                                            [view_link] => http://point360.local/?p=94820
-                                        )
-
-                                    [1] => Array
-                                        (
-                                            [post_id] => 94819
-                                            [title] => Listing Template #3
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94819&action=elementor
-                                            [view_link] => http://point360.local/?p=94819
-                                        )
-
-                                    [2] => Array
-                                        (
-                                            [post_id] => 94809
-                                            [title] => Listing Template #2
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=94809&action=elementor
-                                            [view_link] => http://point360.local/?p=94809
-                                        )
-
-                                    [3] => Array
-                                        (
-                                            [post_id] => 92074
-                                            [title] => Listing Template #1
-                                            [edit_link] => http://point360.local/wp-admin/post.php?post=92074&action=elementor
-                                            [view_link] => http://point360.local/?p=92074
-                                        )
-
                                 )
 
-                            [value] => 0
+                            [value] => 
                         )
 
                 )
