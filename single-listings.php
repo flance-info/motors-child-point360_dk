@@ -46,10 +46,10 @@ if ( apply_filters( 'stm_equip_single', false ) ) {
 							 $layout_param = filter_input( INPUT_GET, 'stm-layout', FILTER_SANITIZE_STRING );
 
 							 if ( 'leasing' == $layout_param ) {
-								 echo $layout_param;
+
 								\Motors_E_W\Helpers\TemplateManagerLeasingChild::motors_display_template_leasing();
 							} elseif ( 'van' == $layout_param ) {
-								 echo $layout_param;
+
 								\Motors_E_W\Helpers\TemplateManagerChild::motors_display_template_van();
 							} else {
 								\Motors_E_W\Helpers\TemplateManager::motors_display_template();

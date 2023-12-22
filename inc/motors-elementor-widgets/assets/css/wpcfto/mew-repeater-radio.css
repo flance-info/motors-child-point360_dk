@@ -164,3 +164,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+    .stm-width .elementor-button.elementor-size-md {
+    width: 100%;
+}

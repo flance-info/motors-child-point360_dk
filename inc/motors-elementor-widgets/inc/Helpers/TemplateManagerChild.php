@@ -59,6 +59,7 @@ class TemplateManagerChild extends TemplateManager {
 			'post_status'    => 'publish',
 			'posts_per_page' => - 1,
 		);
+
 		$posts = new \WP_Query( $args );
 		$for_select = array();
 		foreach ( $posts->posts as $post ) {
@@ -76,10 +77,8 @@ class TemplateManagerChild extends TemplateManager {
 	public static function motors_display_template_van() {
 		global $post;
 		$special_listing_template = get_post_meta( $post->ID, 'special_listing_template', true );
-		flance_write_log($special_listing_template, 'logs/special_listing_template.log');
 		$template_listing_id      = ( $special_listing_template ) ? $special_listing_template : self::$selected_template_id;
 
-		flance_write_log($template_listing_id, 'logs/template_listing_id_logs.log');
 		$template_listing         = get_post( $template_listing_id );
 		setup_postdata( $template_listing );
 		//phpcs:ignore
