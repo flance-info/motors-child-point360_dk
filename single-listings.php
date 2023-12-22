@@ -1,15 +1,13 @@
 <?php
+
 if ( apply_filters( 'stm_equip_single', false ) ) {
 	do_action( 'stm_equip_single_template' );
 } else {
 	if ( stm_is_magazine() ) {
 		add_filter( 'body_class', 'stm_listing_magazine_body_class' );
 	}
-
 	get_header();
-
 	if ( ! stm_is_aircrafts() ) :
-
 		get_template_part( 'partials/page_bg' );
 		get_template_part( 'partials/title_box' );
 		?>
@@ -19,7 +17,6 @@ if ( apply_filters( 'stm_equip_single', false ) ) {
 			if ( stm_is_motorcycle() ) {
 				get_template_part( 'partials/single-car-motorcycle/tabs' );
 			}
-
 			$recaptcha_enabled    = stm_me_get_wpcfto_mod( 'enable_recaptcha', 0 );
 			$recaptcha_public_key = stm_me_get_wpcfto_mod( 'recaptcha_public_key' );
 			$recaptcha_secret_key = stm_me_get_wpcfto_mod( 'recaptcha_secret_key' );
@@ -31,7 +28,6 @@ if ( apply_filters( 'stm_equip_single', false ) ) {
 			<div class="container">
 				<?php
 				if ( have_posts() ) :
-
 					$template = 'partials/single-car/car-main';
 					if ( is_listing( array( 'listing', 'listing_two', 'listing_three', 'listing_three_elementor', 'listing_five' ) ) ) {
 						$template = 'partials/single-car-listing/car-main';
@@ -42,65 +38,63 @@ if ( apply_filters( 'stm_equip_single', false ) ) {
 					} elseif ( stm_is_motorcycle() ) {
 						$template = 'partials/single-car-motorcycle/car-main';
 					}
-
 					while ( have_posts() ) :
 						the_post();
 						$vc_status = get_post_meta( get_the_ID(), '_wpb_vc_js_status', true );
-
 						if ( class_exists( 'Motors_E_W\MotorsApp' ) ) {
-							\Motors_E_W\Helpers\TemplateManager::motors_display_template();
-							\Motors_E_W\Helpers\TemplateManagerChild::motors_display_template_van();
-							\Motors_E_W\Helpers\TemplateManagerLeasingChild::motors_display_template_leasing();
+							 $current_url = home_url( $_SERVER['REQUEST_URI'] );
+							 $layout_param = filter_input( INPUT_GET, 'stm-layout', FILTER_SANITIZE_STRING );
+
+							 if ( 'leasing' == $layout_param ) {
+								 echo $layout_param;
+								\Motors_E_W\Helpers\TemplateManagerLeasingChild::motors_display_template_leasing();
+							} elseif ( 'van' == $layout_param ) {
+								 echo $layout_param;
+								\Motors_E_W\Helpers\TemplateManagerChild::motors_display_template_van();
+							} else {
+								\Motors_E_W\Helpers\TemplateManager::motors_display_template();
+							}
+
 						} elseif ( 'true' === $vc_status ) {
 							the_content();
 						} else {
 
 							get_template_part( $template );
 						}
-
 					endwhile;
-
 				endif;
 				?>
 			</div> <!-- container -->
 
 		</div> <!--single car page-->
 
-		<?php
+	<?php
 	else :
 		echo '<div class="container">';
 		get_template_part( 'partials/page_bg' );
 		get_template_part( 'partials/single-aircrafts/title' );
 		echo '</div>';
-
 		get_template_part( 'partials/single-aircrafts/gallery' );
 		?>
 		<div class="stm-single-car-page">
 			<div class="container">
 				<?php
 				if ( have_posts() ) :
-
 					$template = 'partials/single-aircrafts/aircrafts-main';
-
 					while ( have_posts() ) :
 						the_post();
-
 						$vc_status = get_post_meta( get_the_ID(), '_wpb_vc_js_status', true );
-
 						if ( 'true' === $vc_status ) {
 							the_content();
 						} else {
 							get_template_part( $template );
 						}
-
 					endwhile;
-
 				endif;
 				?>
 			</div>
 		</div>
-		<?php
+	<?php
 	endif;
-
 	get_footer();
 }
