@@ -588,6 +588,34 @@
 	  }
 	}
   }
+
+  .choose-label {
+	display: inline-block;
+	cursor: pointer;
+	width: 100%;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	background: #6b6b6b;
+	display: block;
+	text-align: center;
+	padding: 0 15px;
+  }
+
+  .stm-pricing-plan__button:hover > .choose-label {
+	color: #FFFFFF;
+	background: #9CC14A;
+  }
+
+  .choose-label input {
+	display: none;
+  }
+
+
+  .choose-label input:checked + span {
+	background-color: #666;
+	color: #fff;
+  }
 }
 
 :root {

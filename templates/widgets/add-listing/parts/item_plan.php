@@ -116,7 +116,7 @@
 		<?php
 		if ( class_exists( 'WooCommerce' ) ) {
 
-			$product_ids = array( 94151, 94153 );
+			$product_ids = array( 94151, 94153, 94156 );
 			// Start output buffering
 			ob_start();
 			// Loop through each product ID
@@ -135,7 +135,7 @@
 					?>
 					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ad2c09" data-id="ad2c09" data-element_type="column">
 						<div class="elementor-widget-wrap elementor-element-populated">
-							<div class="elementor-element elementor-element-76b79860 elementor-widget elementor-widget-motors-pricing-plan" data-id="76b79860" data-element_type="widget" data-widget_type="motors-pricing-plan.default">
+							<div class="elementor-element elementor-element-4895c2d9 elementor-widget elementor-widget-motors-pricing-plan" data-id="76b79860" data-element_type="widget" data-widget_type="motors-pricing-plan.default">
 								<div class="elementor-widget-container">
 
 									<div class="stm-pricing-plan" data-option="<?php echo $product_id; ?>">
@@ -170,6 +170,13 @@
 											<div class="stm-pricing-plan__button">
 												<a href="http://point360.local/point-1/">
 													LÆS MERE </a>
+
+											</div>
+											<div class="stm-pricing-plan__button">
+												<label class="choose-label" for="choose-<?php echo $product_id; ?>">
+													<input type="radio" id="choose-<?php echo $product_id; ?>" name="set_pricing_option" value="<?php echo $product_id; ?>">
+													<?php esc_html_e( 'CHOOSE', 'motors-child' ); ?>
+												</label>
 											</div>
 											<div class="stm-pricing-plan__separator stm-pricing-plan__separator__bottom_line">
 												<div class="stm-pricing-plan__separator__element"></div>
