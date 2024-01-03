@@ -590,12 +590,11 @@
   }
 
   .choose-label {
-	display: inline-block;
 	cursor: pointer;
 	width: 100%;
 	color: #fff;
-	font-weight: bold;
-	font-size: 16px;
+	font-family: "Montserrat", Sans-serif;
+	font-weight: 600;
 	background: #6b6b6b;
 	display: block;
 	text-align: center;
@@ -615,6 +614,14 @@
   .choose-label input:checked + span {
 	background-color: #666;
 	color: #fff;
+  }
+
+  .pricing-item {
+	border: 2px solid transparent;
+  }
+
+  .pricing-item.active {
+	border-color: #9cc14a;
   }
 }
 
