@@ -16,3 +16,5 @@ function flance_write_log( $message, $file = 'logs/logfile.log' ) {
 
 require_once 'motors-elementor-widgets/loader.php';
 require_once 'stm-motors-extends/loader.php';
+
+wp_enqueue_style( 'general-style', get_stylesheet_directory_uri(). '/assets/css/new-style.css', [], time() );
