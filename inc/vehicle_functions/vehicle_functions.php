@@ -1,14 +1,12 @@
 <?php
 
 add_filter( 'stm_add_car_validation', 'stm_child_replace_add_listing_notifications_item' );
-
 function stm_child_replace_add_listing_notifications_item( $validation ) {
 	$custom_listing_type = esc_attr( $_REQUEST['custom_listing_type'] );
-	$stm_edit = esc_attr( $_REQUEST['stm_edit'] );
-	if ( ! empty( $custom_listing_type )  || $stm_edit == 'update') {
+	$stm_edit            = esc_attr( $_REQUEST['stm_edit'] );
+	if ( ! empty( $custom_listing_type ) || $stm_edit == 'update' ) {
 		return $validation;
 	}
-
 	$check_plans = [
 		'stm_set_pricing_option' => esc_html( 'Plan Point 1, Point 2 Or Point 3', 'motors-child' ),
 		'stm_pricing_option'     => esc_html( 'Plan Point360.dk or DBA & Billbasen', 'motors-child' ),
@@ -38,22 +36,21 @@ add_filter( 'stm_listing_save_post_meta', function ( $meta, $post_id, $update ) 
 			update_post_meta( $post_id, $check_plan, $value );
 		}
 	}
-	if (!empty($_REQUEST[ 'stm_pricing_option' ])) 	$_SESSION["safeproduct"] = $_REQUEST[ 'stm_pricing_option' ];
+	if ( ! empty( $_REQUEST['stm_pricing_option'] ) ) {
+		$_SESSION["safeproduct"] = $_REQUEST['stm_pricing_option'];
+	}
 
 	return $meta;
 }, 10, 3 );
-
-function stm_add_safe_product( ) {
+function stm_add_safe_product() {
 
 	$plan_id = $_SESSION["safeproduct"];
+	if ( is_numeric( $plan_id ) ) {
+		WC()->cart->add_to_cart( $plan_id, 1, 0, array(), array() );
 
-	if (is_numeric($plan_id)){
-		WC()->cart->add_to_cart( $plan_id, 1, 0, array(), array( ) );
 		return;
 	}
-
-	switch ($_SESSION["safeproduct"])
-	{
+	switch ( $_SESSION["safeproduct"] ) {
 		case 'Basic 100':
 			WC()->cart->add_to_cart( 93708, 1, 0, array(), array( 'safe_custom_price' => $_SESSION["safeprice"] ) );
 			break;
@@ -74,40 +71,34 @@ function stm_add_safe_product( ) {
 
 remove_action( 'woocommerce_before_checkout_form', 'add_safe_product' );
 add_action( 'woocommerce_before_checkout_form', 'stm_add_safe_product' );
-
 /**
  * Code for enabling custom price.
  * Used for safe products
  */
-
- function stm_safe_custom_price_refresh( $cart_object ) {
+function stm_safe_custom_price_refresh( $cart_object ) {
 	$plan_id = $_SESSION["safeproduct"];
-	if (is_numeric($plan_id)){
+	if ( is_numeric( $plan_id ) ) {
 		return;
 	}
-
 	$name = 'Safe ' . $_SESSION["safeproduct"] . ' - ' . $_SESSION["safepmonths"] . ' Måneder';
 	foreach ( $cart_object->get_cart() as $item ) {
 
-		if( array_key_exists( 'safe_custom_price', $item ) ) {
-			$item[ 'data' ]->set_price( $item[ 'safe_custom_price' ] );
-			$item[ 'data' ]->set_name( $name );
+		if ( array_key_exists( 'safe_custom_price', $item ) ) {
+			$item['data']->set_price( $item['safe_custom_price'] );
+			$item['data']->set_name( $name );
 		}
 	}
 }
- remove_action( 'woocommerce_before_calculate_totals', 'safe_custom_price_refresh' );
- add_action( 'woocommerce_before_calculate_totals', 'stm_safe_custom_price_refresh' );
 
+remove_action( 'woocommerce_before_calculate_totals', 'safe_custom_price_refresh' );
+add_action( 'woocommerce_before_calculate_totals', 'stm_safe_custom_price_refresh' );
+if ( class_exists( 'WooCommerce' ) ) {
+	function empty_woocommerce_cart_if_not_empty() {
 
- if ( class_exists( 'WooCommerce' ) ) {
-    function empty_woocommerce_cart_if_not_empty() {
-        // Get the cart instance
-        $cart = WC()->cart;
+		$cart = WC()->cart;
+		if ( ! $cart->is_empty() ) {
 
-        // Check if the cart is not empty
-        if ( ! $cart->is_empty() ) {
-            // Clear the cart
-            $cart->empty_cart();
-        }
-    }
+			$cart->empty_cart();
+		}
+	}
 }
