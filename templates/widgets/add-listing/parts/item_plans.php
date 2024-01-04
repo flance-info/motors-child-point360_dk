@@ -58,7 +58,6 @@ if ($post_id  !== 1755){
 				get_template_part( 'templates/widgets/add-listing/parts/item_plan' );
 				?>
 
-
 			<?php } else { ?>
 				<p style="color: #888888; font-size: 13px;"><?php echo esc_html__( 'Please, log in to view your available plans', 'motors-elementor-widgets' ); ?></p>
 			<?php }

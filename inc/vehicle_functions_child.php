@@ -328,7 +328,7 @@ function stm_ajax_add_a_car_media_child()
 
         update_post_meta($post_id, '_price', $pay_per_listing_price);
         update_post_meta($post_id, 'pay_per_listing', 'pay');
-
+		empty_woocommerce_cart_if_not_empty();
         $checkout_url = wc_get_checkout_url() . '?add-to-cart=' . $post_id;
     }
 

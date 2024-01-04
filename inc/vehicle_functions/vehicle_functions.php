@@ -4,9 +4,11 @@ add_filter( 'stm_add_car_validation', 'stm_child_replace_add_listing_notificatio
 
 function stm_child_replace_add_listing_notifications_item( $validation ) {
 	$custom_listing_type = esc_attr( $_REQUEST['custom_listing_type'] );
-	if ( ! empty( $custom_listing_type ) ) {
+	$stm_edit = esc_attr( $_REQUEST['stm_edit'] );
+	if ( ! empty( $custom_listing_type )  || $stm_edit == 'update') {
 		return $validation;
 	}
+
 	$check_plans = [
 		'stm_set_pricing_option' => esc_html( 'Plan Point 1, Point 2 Or Point 3', 'motors-child' ),
 		'stm_pricing_option'     => esc_html( 'Plan Point360.dk or DBA & Billbasen', 'motors-child' ),
@@ -46,7 +48,7 @@ function stm_add_safe_product( ) {
 	$plan_id = $_SESSION["safeproduct"];
 
 	if (is_numeric($plan_id)){
-		WC()->cart->add_to_cart( $plan_id, 1, 0, array(), array( 'safe_custom_price' => $_SESSION["safeprice"] ) );
+		WC()->cart->add_to_cart( $plan_id, 1, 0, array(), array( ) );
 		return;
 	}
 
@@ -81,7 +83,6 @@ add_action( 'woocommerce_before_checkout_form', 'stm_add_safe_product' );
  function stm_safe_custom_price_refresh( $cart_object ) {
 	$plan_id = $_SESSION["safeproduct"];
 	if (is_numeric($plan_id)){
-		WC()->cart->add_to_cart( $plan_id, 1, 0, array(), array( 'safe_custom_price' => $_SESSION["safeprice"] ) );
 		return;
 	}
 
@@ -94,5 +95,19 @@ add_action( 'woocommerce_before_checkout_form', 'stm_add_safe_product' );
 		}
 	}
 }
- //remove_action( 'woocommerce_before_calculate_totals', 'safe_custom_price_refresh' );
- //add_action( 'woocommerce_before_calculate_totals', 'stm_safe_custom_price_refresh' );
+ remove_action( 'woocommerce_before_calculate_totals', 'safe_custom_price_refresh' );
+ add_action( 'woocommerce_before_calculate_totals', 'stm_safe_custom_price_refresh' );
+
+
+ if ( class_exists( 'WooCommerce' ) ) {
+    function empty_woocommerce_cart_if_not_empty() {
+        // Get the cart instance
+        $cart = WC()->cart;
+
+        // Check if the cart is not empty
+        if ( ! $cart->is_empty() ) {
+            // Clear the cart
+            $cart->empty_cart();
+        }
+    }
+}

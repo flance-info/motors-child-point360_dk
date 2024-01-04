@@ -176,7 +176,7 @@
 	</div>
 </div>
 
-
+<input type="hidden" name="btn-type" value="pay">
 <script>
 	jQuery(document).ready(function ($) {
 		$('input[name="stm_pricing_option"]').change(function () {
