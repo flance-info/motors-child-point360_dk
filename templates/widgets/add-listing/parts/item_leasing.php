@@ -13,6 +13,7 @@ if ( in_array( 'administrator', $current_user->roles ) || in_array( 'stm_dealer'
 if ( $display_section === false ) {
 	return;
 }
+
 if ( empty( $_id ) ) :
 	?>
 	<div class="stm-form-4-videos clearfix">
