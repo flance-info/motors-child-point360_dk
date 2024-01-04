@@ -212,10 +212,10 @@
   background-color: #666;
   color: #fff;
 }
-.elementor-1755 .pricing-item {
+.elementor-1755 .pricing-item, .elementor-1755 .stm-pricing-item {
   border: 2px solid transparent;
 }
-.elementor-1755 .pricing-item.active {
+.elementor-1755 .pricing-item.active, .elementor-1755 .stm-pricing-item.active {
   border-color: #9cc14a;
 }
 

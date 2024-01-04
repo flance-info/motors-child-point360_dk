@@ -48,6 +48,7 @@ if ($post_id  !== 1755){
 	</div>
 </div>
 <?php }else{ ?>
+
 	<div class="stm-form-plans">
 		<div class="stm-car-listing-data-single stm-border-top-unit ">
 			<div class="title heading-font"><?php esc_html_e( 'Choose plan', 'motors-elementor-widgets' ); ?></div>

@@ -294,11 +294,11 @@
 	color: #fff;
   }
 
-  .pricing-item {
+  .pricing-item, .stm-pricing-item {
 	border: 2px solid transparent;
   }
 
-  .pricing-item.active {
+  .pricing-item.active, .stm-pricing-item.active{
 	border-color: #9cc14a;
   }
 
