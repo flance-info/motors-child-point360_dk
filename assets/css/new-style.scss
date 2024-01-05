@@ -326,7 +326,8 @@
   .labels {
 	width: 480px;
 	margin-bottom: 5px;
-    color: #000;
+	color: #000;
+
 	&:after {
 	  content: "";
 	  display: block;
@@ -403,9 +404,11 @@
 	}
   }
 }
+
 .butterbean-manager-default .butterbean-control {
-    margin-bottom: 41px !important;
+  margin-bottom: 41px !important;
 }
+
 .butterbean-control {
   position: relative;
 }
@@ -537,5 +540,28 @@
   background-position: 100% -5px !important;
   background-repeat: no-repeat !important;
 }
+
+.stm-car-listing-data-single.stm-border-top-unit.stm-row-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stm-checkbox-flex {
+  display: flex;
+  column-gap: 40px;
+  color: #000;
+
+  label {
+	font-weight: 700;
+	text-transform: uppercase;
+  }
+}
+
+.stm-vat-row {
+  margin-bottom: 30px;
+}
+
+
 
 

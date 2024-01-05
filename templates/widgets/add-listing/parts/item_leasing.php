@@ -13,113 +13,84 @@ if ( in_array( 'administrator', $current_user->roles ) || in_array( 'stm_dealer'
 if ( $display_section === false ) {
 	return;
 }
+?>
+<div class="stm-form-leasing-edit">
+	<div class="stm-car-listing-data-single stm-border-top-unit stm-row-flex">
+		<div class="title heading-font"><?php esc_html_e( 'Add this Car to Leasing', 'motors-child' ); ?></div>
+		<div class="stm-checkbox-flex">
+			<div class="feature-single stm-radio">
+				<label>
+					<span><?php esc_html_e( 'Yes', 'motors-child' ); ?></span>
+					<div class="checker">
+						<span>
+							<input type="checkbox" value="yes" name="stm_add_leasing">
+						</span>
+					</div>
 
-if ( empty( $_id ) ) :
-	?>
-	<div class="stm-form-4-videos clearfix">
-		<div class="stm-car-listing-data-single stm-border-top-unit ">
-			<div class="title heading-font"><?php esc_html_e( 'Add Videos', 'motors' ); ?></div>
-		</div>
-		<div class="stm-add-videos-unit">
-			<div class="row">
-				<div class="col-md-6 col-sm-12">
-					<div class="stm-video-units">
-						<div class="stm-video-link-unit-wrap">
-							<div class="heading-font">
-								<span class="video-label"><?php esc_html_e( 'Video link', 'motors' ); ?></span> <span
-										class="count">1</span></div>
-							<div class="stm-video-link-unit">
-								<input type="text" name="stm_video[]"/>
-								<div class="stm-after-video"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-12">
-					<div class="stm-simple-notice">
-						<i class="fas fa-info-circle"></i>
-						<?php echo wp_kses_post( stm_me_get_wpcfto_mod( 'addl_video_content', '' ) ); ?>
-					</div>
-				</div>
+				</label>
 			</div>
-		</div>
+			<div class="feature-single stm-radio">
+				<label>
+					<span><?php esc_html_e( 'No', 'motors-child' ); ?></span>
+					<div class="checker">
+						<span>
+							<input type="checkbox" value="no" name="stm_add_leasing">
+						</span>
+					</div>
 
-
-		<div class="stm-add-videos-unit stm">
-			<div style="position: relative;">
-				<input type="file" name="stm_video_preview[]" id="stm_video_preview_1" multiple="">
-				<a href="#" class="button stm_fake_button">Choose video thumbnail</a>
+				</label>
 			</div>
 		</div>
 	</div>
-
-
-<?php else : ?>
-	<?php $video = get_post_meta( $_id, 'gallery_video', true ); ?>
-
-	<div class="stm-form-4-videos clearfix">
-		<div class="stm-car-listing-data-single stm-border-top-unit ">
-			<div class="title heading-font"><?php esc_html_e( 'Add Videos', 'motors' ); ?></div>
-			<span class="step_number step_number_4 heading-font"><?php esc_html_e( 'step', 'motors' ); ?> 4</span>
-		</div>
-		<?php $has_videos = false; ?>
-		<div class="stm-add-videos-unit">
-			<div class="row">
-				<div class="col-md-6 col-sm-12">
-					<div class="stm-video-units">
-						<div class="stm-video-link-unit-wrap">
-							<div class="heading-font">
-								<span class="video-label"><?php esc_html_e( 'Video link', 'motors' ); ?></span> <span
-										class="count">1</span>
-							</div>
-							<?php
-							$video = get_post_meta( $_id, 'gallery_video', true );
-							if ( empty( $video ) ) {
-								$video = '';
-							} else {
-								$has_videos = true;
-							}
-							?>
-							<div class="stm-video-link-unit">
-								<input type="text" name="stm_video[]" value="<?php echo esc_url( $video ); ?>"/>
-								<div class="stm-after-video active"></div>
-							</div>
-							<?php
-							if ( $has_videos ) :
-								$gallery_videos = get_post_meta( $_id, 'gallery_videos', true );
-								if ( ! empty( $gallery_videos ) ) :
-									foreach ( $gallery_videos as $gallery_video ) :
-										?>
-										<div class="stm-video-link-unit">
-											<input type="text" name="stm_video[]"
-												   value="<?php echo esc_url( $gallery_video ); ?>"/>
-											<div class="stm-after-video active"></div>
-										</div>
-									<?php endforeach; ?>
-								<?php endif; ?>
-							<?php endif; ?>
-						</div>
+	<div class="stm-vat-row">
+		<div class="stm-checkbox-flex">
+			<div class="feature-single stm-radio">
+				<label>
+					<span><?php esc_html_e( 'Car incl. VAT', 'motors-child' ); ?></span>
+					<div class="checker">
+						<span>
+							<input type="checkbox" value="yes" name="stm_car_leasing_vat">
+						</span>
 					</div>
 
-				</div>
-
-
-				<div class="col-md-6 col-sm-12">
-					<div class="stm-simple-notice">
-						<i class="fas fa-info-circle"></i>
-						<?php echo wp_kses_post( stm_me_get_wpcfto_mod( 'addl_video_content', '' ) ); ?>
+				</label>
+			</div>
+			<div class="feature-single stm-radio">
+				<label>
+					<span><?php esc_html_e( 'Car plus. VAT', 'motors-child' ); ?></span>
+					<div class="checker">
+						<span>
+							<input type="checkbox" value="no" name="stm_car_leasing_vat">
+						</span>
 					</div>
-				</div>
-			</div>
-		</div>
 
-		<div class="stm-add-videos-unit stm">
-			<div style="position: relative;">
-				<input type="file" name="stm_video_preview[]" id="stm_video_preview_1" multiple="">
-				<a href="#" class="button stm_fake_button">Choose video thumbnail</a>
+				</label>
 			</div>
-		</div>
+			<div class="feature-single stm-radio">
+				<label>
+					<span><?php esc_html_e( 'Van incl. VAT', 'motors-child' ); ?></span>
+					<div class="checker">
+						<span>
+							<input type="checkbox" value="no" name="stm_van_leasing_vat">
+						</span>
+					</div>
 
+				</label>
+			</div>
+			<div class="feature-single stm-radio">
+				<label>
+					<span><?php esc_html_e( 'Van excl. VAT', 'motors-child' ); ?></span>
+					<div class="checker">
+						<span>
+							<input type="checkbox" value="no" name="stm_van_leasing_vat">
+						</span>
+					</div>
+
+				</label>
+			</div>
+
+		</div>
 	</div>
-<?php endif; ?>
+
+</div>
 
