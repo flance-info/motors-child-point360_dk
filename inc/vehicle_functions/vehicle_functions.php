@@ -48,6 +48,11 @@ add_filter( 'stm_listing_save_post_meta', function ( $meta, $post_id, $update ) 
 	foreach ( $custom_metas as $custom_meta  ) {
 		if ( ! empty( $_REQUEST[ $custom_meta ] ) ) {
 			$value = is_array($_REQUEST[ $custom_meta ])? $_REQUEST[ $custom_meta ] : esc_attr($_REQUEST[ $custom_meta ] );
+			if ('stm_parts' == $custom_meta )
+			{
+				$custom_meta = 'control_stm-transport-parts';
+				$value = implode( ',', $value );
+			}
 			update_post_meta( $post_id, $custom_meta, $value );
 			$retrieved_value = get_post_meta($post_id, $custom_meta, true);
 		}
