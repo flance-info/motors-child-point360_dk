@@ -441,4 +441,19 @@
   margin-bottom: 30px;
 }
 
+.feature-single.stm-radio div.radio span.checked {
+  width: 16px;
+  height: 16px;
+  background-image: url("/wp-content/themes/motors/assets/images/checks2x.png");
+  background-position: -16px 0;
+  background-size: 32px;
+}
+.feature-single.stm-radio div.radio span {
+  width: 16px;
+  height: 16px;
+  background-image: url("/wp-content/themes/motors/assets/images/checks2x.png");
+  background-position: 0px 0;
+  background-size: 32px;
+}
+
 /*# sourceMappingURL=new-style.css.map */

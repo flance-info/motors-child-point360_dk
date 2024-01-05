@@ -56,7 +56,7 @@ $vars = array(
 					<span><?php esc_html_e( 'Yes', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="checkbox" value="yes" name="stm_add_van">
+							<input type="radio" value="yes" name="stm_add_van">
 						</span>
 					</div>
 
@@ -67,7 +67,7 @@ $vars = array(
 					<span><?php esc_html_e( 'No', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="checkbox" value="no" name="stm_add_van">
+							<input type="radio" value="no" name="stm_add_van">
 						</span>
 					</div>
 
@@ -82,7 +82,7 @@ $vars = array(
 					<span><?php esc_html_e( 'Van with Vat', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="checkbox" value="yes" name="stm_van_vat">
+							<input type="radio" value="yes" name="stm_van_vat">
 						</span>
 					</div>
 
@@ -93,7 +93,7 @@ $vars = array(
 					<span><?php esc_html_e( 'Van without Vat', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="checkbox" value="no" name="stm_van_vat">
+							<input type="radio" value="no" name="stm_van_vat">
 						</span>
 					</div>
 
