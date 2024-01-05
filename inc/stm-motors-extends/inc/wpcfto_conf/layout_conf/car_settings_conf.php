@@ -52,3 +52,16 @@ $config['sorted_steps']['options'][0]['options'][] = array(
 	return $config;
 } );
 
+function stm_leasing_listings_page_options($options) {
+	$options['stm_leasing_section_field'] = array(
+		'label'       => esc_html__('Leasing Section Field', 'motors-child'),
+		'description' => esc_html__('Leasing Section Field', 'motors-child'),
+		'value'       => '',
+		'type'        => 'checkbox',
+	);
+
+	return $options;
+}
+
+add_filter('stm_listings_page_options_filter', 'stm_leasing_listings_page_options');
+
