@@ -102,3 +102,20 @@ if ( class_exists( 'WooCommerce' ) ) {
 		}
 	}
 }
+
+function get_parts_choices() {
+	$args = array(
+		'post_type'   => 'stm-transport-parts',
+		'post_status' => 'publish'
+	);
+	$posts = new WP_Query( $args );
+	$choices = array();
+	if ( $posts->have_posts() ) {
+		while ( $posts->have_posts() ) : $posts->the_post();
+			$choices[ get_the_ID() ] = get_the_title();
+		endwhile;
+	}
+	wp_reset_postdata();
+
+	return $choices;
+}
