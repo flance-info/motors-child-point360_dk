@@ -34,10 +34,12 @@ if ( $custom_listing_type && $listing_types_options ) {
 $car_price_form_label = '';
 $price                = '';
 $sale_price           = '';
+$van_price           = '';
 
 if ( ! empty( $_id ) ) {
 	$car_price_form_label = get_post_meta( $_id, 'car_price_form_label', true );
 	$price                = (int) getConverPrice( get_post_meta( $_id, 'price', true ) );
+	$van_price                = (int) getConverPrice( get_post_meta( $_id, 'van_price', true ) );
 	$sale_price           = ( ! empty( get_post_meta( $_id, 'sale_price', true ) ) ) ? (int) getConverPrice( get_post_meta( $_id, 'sale_price', true ) ) : '';
 }
 
@@ -49,6 +51,8 @@ $vars = array(
 	'show_sale_price_label' => $show_sale_price_label,
 	'show_custom_label'     => $show_custom_label,
 	'car_price_form_label'  => $car_price_form_label,
+	'van_price'                 => $van_price,
+
 );
 ?>
 
@@ -58,13 +62,7 @@ $vars = array(
 	</div>
 	<div class="row stm-relative">
 		<?php
-		STM_E_W\Helpers\Helper::stm_ew_load_template( 'widgets/add-listing/parts/item_price_templates/price', MOTORS_ELEMENTOR_WIDGETS_PATH, $vars );
-		if ( ! empty( $show_sale_price_label ) ) {
-			STM_E_W\Helpers\Helper::stm_ew_load_template( 'widgets/add-listing/parts/item_price_templates/sale_price', MOTORS_ELEMENTOR_WIDGETS_PATH, $vars );
-		}
-		if ( ! empty( $show_custom_label ) ) {
-			STM_E_W\Helpers\Helper::stm_ew_load_template( 'widgets/add-listing/parts/item_price_templates/custom_label', MOTORS_ELEMENTOR_WIDGETS_PATH, $vars );
-		}
+		STM_E_W\Helpers\Helper::stm_ew_load_template( 'widgets/add-listing/parts/item_price_templates/van_price', MOTORS_ELEMENTOR_WIDGETS_PATH, $vars );
 		?>
 	</div>
 	<input type="hidden" name="btn-type"/>
