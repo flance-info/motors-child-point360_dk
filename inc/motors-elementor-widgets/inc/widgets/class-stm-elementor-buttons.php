@@ -94,6 +94,12 @@ class Stm_Elementor_Buttons extends Widget_Base {
 			if ( ! empty( $template_id ) ) {
 				echo do_shortcode( '[elementor-template id="' . $template_id . '"]' );
 			}
+
+			 $default_template = locate_template('templates/widgets/stm-buttons/'.$this->handler.'.php');
+
+            if ($default_template) {
+                include $default_template;
+            }
 		}
 	}
 

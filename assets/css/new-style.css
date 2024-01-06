@@ -493,4 +493,28 @@
   background-color: #eceff3;
 }
 
+.elementor-row.stm-buttons {
+  justify-content: space-between;
+}
+.elementor-row.stm-buttons .elementor-column {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.elementor-row.stm-buttons .elementor-column:last-child {
+  margin-right: 0;
+}
+.elementor-row.stm-buttons .black-button {
+  background-color: #000000;
+  text-transform: uppercase;
+  font-size: 13px;
+  fill: #FFFFFF;
+  color: #FFFFFF;
+  min-width: 200px;
+}
+@media only screen and (max-width: 500px) {
+  .elementor-row.stm-buttons .black-button {
+    width: 100%;
+  }
+}
+
 /*# sourceMappingURL=new-style.css.map */

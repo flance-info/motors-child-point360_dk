@@ -581,11 +581,11 @@
 }
 
 .col-md-6.stm-form-2-quarter {
-   position: relative;
-    float: left;
-    padding: 0 15px;
-    margin-bottom: 12px;
-    min-height: 48px;
+  position: relative;
+  float: left;
+  padding: 0 15px;
+  margin-bottom: 12px;
+  min-height: 48px;
 }
 
 
@@ -593,38 +593,71 @@
 .stm_add_car_form .stm_add_car_form_1
 .stm-form-1-end-unit
 .stm-form-2-quarter .select2 {
-    float: right;
+  float: right;
 
   width: 200px !important;
 }
 
-.stm-leasing-box{
+.stm-leasing-box {
   .stm-label {
-    color: #000;
-    font-weight: bold;
+	color: #000;
+	font-weight: bold;
 	float: left;
-}
+  }
 }
 
 .stm_motors_listing_types_multilisting_active
 .stm_add_car_form .stm_add_car_form_1
 .stm-form-1-end-unit .stm-form-2-quarter input {
-    float: right;
-    width: 200px !important;
-    padding-left: 13px;
-    border-width: 1px !important;
-    color: #555;
-    display: block;
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 21px;
-    font-weight: 400;
-    border: 2px solid #eceff3;
-    font-size: 14px;
-    outline: none !important;
-    background-color: #eceff3;
+  float: right;
+  width: 200px !important;
+  padding-left: 13px;
+  border-width: 1px !important;
+  color: #555;
+  display: block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 21px;
+  font-weight: 400;
+  border: 2px solid #eceff3;
+  font-size: 14px;
+  outline: none !important;
+  background-color: #eceff3;
+
 }
+
+.elementor-row.stm-buttons {
+  .elementor-column {
+	margin-right: 10px;
+	margin-bottom: 10px;
+  }
+
+  justify-content: space-between;
+
+  .elementor-column:last-child {
+	margin-right: 0;
+  }
+
+  .black-button {
+	background-color: #000000;
+	text-transform: uppercase;
+	font-size: 13px;
+	fill: #FFFFFF;
+	color: #FFFFFF;
+	    min-width: 200px;
+  }
+
+  @media only screen and (max-width: 500px) {
+	.black-button {
+	  width: 100%;
+	}
+  }
+}
+
+
+
+
 
 
 
