@@ -85,12 +85,16 @@ class Stm_Elementor_Buttons extends Widget_Base {
 
 	public function render() {
 
-		// Display our Widget.
-		$template_id = intval( $this->get_settings_for_display( 'additional_template_select' ) );
-		if ( ! empty( $template_id ) ) {
-			echo do_shortcode( '[elementor-template id="' . $template_id . '"]' );
-		}
+		$current_post_type = get_post_type();
 
+		// Check if the current post type is 'listings'
+		if ( $current_post_type === 'listings' ) {
+			// Display our Widget.
+			$template_id = intval( $this->get_settings_for_display( 'additional_template_select' ) );
+			if ( ! empty( $template_id ) ) {
+				echo do_shortcode( '[elementor-template id="' . $template_id . '"]' );
+			}
+		}
 	}
 
 }
