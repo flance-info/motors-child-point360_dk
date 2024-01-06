@@ -57,11 +57,13 @@ $add_van      = get_post_meta( $post_id, 'stm_add_van', true );
 				<span class="elementor-button-text"><?php esc_html_e( 'SHOW AS CAR', 'motors-child' ); ?></span>
 			</a>
 		</div>
+	<?php if ( $add_van == 'yes' ) : ?>
 		<div class="elementor-column">
 			<a href="?stm-layout=van" class="elementor-button elementor-size-md black-button">
 				<span class="elementor-button-text"><?php esc_html_e( 'SHOW AS VAN', 'motors-child' ); ?></span>
 			</a>
 		</div>
+	<?php endif; ?>
 		<?php if ( $add_leasing == 'yes' ) : ?>
 			<div class="elementor-column">
 				<a href="?stm-layout=leasing" class="elementor-button elementor-size-md black-button">
@@ -70,11 +72,13 @@ $add_van      = get_post_meta( $post_id, 'stm_add_van', true );
 			</div>
 		<?php endif; ?>
 	<?php else : ?>
-		<div class="elementor-column">
-			<a href="?stm-layout=van" class="elementor-button elementor-size-md black-button">
-				<span class="elementor-button-text"><?php esc_html_e( 'SHOW AS VAN', 'motors-child' ); ?></span>
-			</a>
-		</div>
+		<?php if ( $add_van == 'yes' ) : ?>
+			<div class="elementor-column">
+				<a href="?stm-layout=van" class="elementor-button elementor-size-md black-button">
+					<span class="elementor-button-text"><?php esc_html_e( 'SHOW AS VAN', 'motors-child' ); ?></span>
+				</a>
+			</div>
+		<?php endif; ?>
 		<?php if ( $add_leasing == 'yes' ) : ?>
 			<div class="elementor-column">
 				<a href="?stm-layout=leasing" class="elementor-button elementor-size-md black-button">
