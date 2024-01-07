@@ -123,10 +123,15 @@ $listing_id = ( is_null( $listing_id ) ) ? get_the_ID() : $listing_id;
 							</a>
 						</div>
 						<a class="stm-no-text-decoration" href="<?php echo ( is_listing() || stm_is_aircrafts() ) ? esc_url( stm_get_author_link( $user_added_by ) ) : '#!'; ?>">
-							<h3 class="title"><?php stm_display_user_name( $user_added_by ); ?></h3>
+
 							<?php if (!in_array($lowercase_sku, ['p2','p3'])){ ?>
+								<h3 class="title">
+								<?php stm_display_user_name( $user_added_by ); ?>
+							</h3>
 							<div class="stm-label"><?php esc_html_e( 'Private Seller', 'motors' ); ?></div>
-							<?php }?>
+							<?php }else{ ?>
+								<h3 class="title"> Point360 </h3>
+							<?php } ?>
 						</a>
 					</div>
 
