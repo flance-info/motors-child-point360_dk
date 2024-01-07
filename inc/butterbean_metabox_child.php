@@ -261,6 +261,18 @@ function stm_listings_register_manager_child( $butterbean, $post_type ) {
             ),
         )
     );
+	$manager->register_control(
+		'stm_van_price',
+		array(
+			'type'    => 'text',
+			'section' => 'stm_price',
+			'preview' => 'price',
+			'label'   => esc_html__( 'Van Price', 'motors-child' ),
+			'attr'    => array(
+				'class' => 'widefat',
+			),
+		)
+	);
 
     if ( function_exists( 'stm_is_equipment' ) && stm_is_equipment() ) {
         /*Price*/
@@ -792,6 +804,13 @@ function stm_listings_register_manager_child( $butterbean, $post_type ) {
 
     $manager->register_setting(
         'sale_price',
+        array(
+            'sanitize_callback' => 'wp_filter_nohtml_kses',
+        )
+    );
+
+$manager->register_setting(
+        'stm_van_price',
         array(
             'sanitize_callback' => 'wp_filter_nohtml_kses',
         )
