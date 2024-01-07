@@ -283,15 +283,52 @@
             $quantity          = empty( $_REQUEST['quantity'] ) ? 1 : wc_stock_amount( wp_unslash( $_REQUEST['quantity'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             $passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
 
-            if ( $passed_validation && false !== WC()->cart->add_to_cart( $product_id, $quantity ) ) {
-                wc_add_to_cart_message( array( $product_id => $quantity ), true );
-                return true;
-            }
+
+			if ( $passed_validation ) {
+		        if ( $this->check_referer_url() ) {
+			        $van_price = $this->calculate_custom_price( $product_id );
+			        if ( false !== WC()->cart->add_to_cart( $product_id, $quantity, 0, array(), array( 'van_price' => $van_price ) ) ) {
+				        wc_add_to_cart_message( array( $product_id => $quantity ), true );
+				        return true;
+			        }
+		        }else{
+			        if ( false !== WC()->cart->add_to_cart( $product_id, $quantity ) ) {
+				        wc_add_to_cart_message( array( $product_id => $quantity ), true );
+				        return true;
+			        }
+		        }
+	        }
 
 
             return false;
         }
 
+	    public function check_referer_url() {
+
+		    if ( $_REQUEST['stm-layout'] == 'van' ) {
+			    return true;
+		    }
+		    if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
+			    $referer_url    = $_SERVER['HTTP_REFERER'];
+			    $url_components = parse_url( $referer_url );
+			    if ( isset( $url_components['query'] ) ) {
+				    parse_str( $url_components['query'], $query_params );
+				    if ( isset( $query_params['stm-layout'] ) && $query_params['stm-layout'] === 'van' ) {
+					    return true;
+				    } else {
+					    return false;
+				    }
+			    } else {
+				    return false;
+			    }
+		    } else {
+			    return false;
+		    }
+	    }
+	    private function calculate_custom_price( $product_id ) {
+		    $custom_price = get_post_meta( $product_id, 'stm_van_price', true );
+		    return $custom_price;
+	    }
         public function stm_ajax_buy_car_online()
         {
             check_ajax_referer( 'stm_security_nonce', 'security' );
@@ -301,6 +338,7 @@
             $car_id = intval( filter_var( wp_unslash( $_POST['car_id'] ), FILTER_SANITIZE_NUMBER_INT ) );
 
             if ( ! empty( $car_id ) && ( get_post( $car_id ) ) ) {
+
                 if ( class_exists( 'WooCommerce' ) && stm_me_get_wpcfto_mod( 'enable_woo_online', false ) ) {
                     $price      = get_post_meta( $car_id, 'price', true );
                     $sale_price = get_post_meta( $car_id, 'sale_price', true );
@@ -316,9 +354,13 @@
                     $checkout_url = wc_get_checkout_url();
 
                     try {
-                        $_REQUEST['add-to-cart'] = $car_id;
 
+                        $_REQUEST['add-to-cart'] = $car_id;
+						if ( $this->check_referer_url() ) {
+							//$_REQUEST['stm-layout'] = 'van';
+						}
                         if ( ! $this->check_listing_cart( $car_id ) ) {
+
                             $this->add_to_cart();
                         }
 
