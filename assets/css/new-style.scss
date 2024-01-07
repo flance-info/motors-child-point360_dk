@@ -645,7 +645,7 @@
 	font-size: 13px;
 	fill: #FFFFFF;
 	color: #FFFFFF;
-	    min-width: 200px;
+	min-width: 200px;
   }
 
   @media only screen and (max-width: 500px) {
@@ -653,6 +653,22 @@
 	  width: 100%;
 	}
   }
+}
+
+.stm-directory-grid-loop .image .stm-listing-point {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 3px 5px 3px 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 16px;
+  opacity: 1;
+  z-index: 20;
+  background: #9cc14a;
+  border-radius: 50%;
+  text-transform: uppercase;
 }
 
 

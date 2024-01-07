@@ -144,3 +144,17 @@ function get_parts_choices() {
 
 	return $choices;
 }
+
+function get_points_plan($listing_id) {
+	$lowercase_sku = null;
+	$stm_set_pricing_option = get_post_meta( $listing_id, 'stm_set_pricing_option', true );
+	$product_id             = $stm_set_pricing_option;
+	if ( $product_id ) {
+		$product     = wc_get_product( $product_id );
+		$product_sku = $product->get_sku();
+		if ( ! empty( $product_sku ) ) {
+			$lowercase_sku = strtolower( $product_sku );
+		}
+	}
+	return $lowercase_sku;
+}
