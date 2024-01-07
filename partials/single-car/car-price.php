@@ -45,6 +45,18 @@ if ( empty( $price ) && ! empty( $sale_price ) ) {
     $show_sale_price = false;
 }
 
+// Van price
+$current_url  = home_url( $_SERVER['REQUEST_URI'] );
+$layout_param = filter_input( INPUT_GET, 'stm-layout', FILTER_SANITIZE_STRING );
+
+$van_price      = get_post_meta( $listing_id, 'stm_van_price', true );
+
+if ( 'van' == $layout_param ){
+    $price           = $van_price;
+	$show_price = (!empty($price)) ? true : false;
+   $show_sale_price = false;
+}
+
 if ( stm_is_dealer_two() ) {
     $sellOnline   = stm_me_get_wpcfto_mod( 'enable_woo_online', false );
 
