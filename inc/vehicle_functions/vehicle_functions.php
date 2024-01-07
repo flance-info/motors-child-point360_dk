@@ -105,6 +105,13 @@ function stm_safe_custom_price_refresh( $cart_object ) {
 			$item['data']->set_price( $item['safe_custom_price'] );
 			$item['data']->set_name( $name );
 		}
+
+		if ( array_key_exists( 'van_price', $item ) ) {
+			$product_name = $item['data']->get_name(). esc_html(' As Van', 'motors-child');
+			$item['data']->set_price( $item['van_price'] );
+			$item['data']->set_name( $product_name );
+		}
+
 	}
 }
 
