@@ -304,10 +304,11 @@
         }
 
 	    public function check_referer_url() {
-
-		    if ( $_REQUEST['stm-layout'] == 'van' ) {
-			    return true;
-		    }
+			if ( !empty( $_REQUEST['stm-layout'] ) ) {
+				if ( $_REQUEST['stm-layout'] == 'van' ) {
+					return true;
+				}
+			}
 		    if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
 			    $referer_url    = $_SERVER['HTTP_REFERER'];
 			    $url_components = parse_url( $referer_url );
@@ -340,6 +341,7 @@
             if ( ! empty( $car_id ) && ( get_post( $car_id ) ) ) {
 
                 if ( class_exists( 'WooCommerce' ) && stm_me_get_wpcfto_mod( 'enable_woo_online', false ) ) {
+					empty_woocommerce_cart_if_not_empty();
                     $price      = get_post_meta( $car_id, 'price', true );
                     $sale_price = get_post_meta( $car_id, 'sale_price', true );
 
