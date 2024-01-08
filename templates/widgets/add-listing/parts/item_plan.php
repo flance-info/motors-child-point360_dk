@@ -140,6 +140,11 @@
 														<div class="stm-pricing-plan__header-text__subtitle">
 														</div>
 													</div>
+													<?php if ($product_id == '94923'): ?>
+													<div class="stm-pricing-plan__header__badge badge-position-top_left">
+														<span> <?php esc_html_e( 'POPULÆR', 'motors-child' ); ?></span>
+													</div>
+													<?php endif; ?>
 												</div>
 											</div>
 											<div class="stm-pricing-plan__separator stm-pricing-plan__separator__title">
