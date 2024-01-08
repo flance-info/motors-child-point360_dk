@@ -95,7 +95,19 @@
 		<?php
 		if ( class_exists( 'WooCommerce' ) ) {
 
-			$product_ids = array( 94937, 94940 );
+			$home_url = home_url();
+
+// Define the target URL
+			$target_string = 'point360.dk';
+
+// Check if the current URL contains the target string
+			if (strpos($home_url, $target_string) !== false) {
+				// URL matches, set product IDs accordingly
+				$product_ids = array( 94919, 94923 );
+			} else {
+				// URL does not match, set alternative product IDs
+				$product_ids = array( 94937, 94940 );
+			}
 			// Start output buffering
 			ob_start();
 			// Loop through each product ID
