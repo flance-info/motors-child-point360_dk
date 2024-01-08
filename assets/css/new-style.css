@@ -533,4 +533,12 @@
   text-transform: uppercase;
 }
 
+.leasing-price {
+  border: 1px solid #0073aa;
+  /* padding: 10px; */
+}
+.leasing-price div {
+  border: 1px solid #0073aa;
+}
+
 /*# sourceMappingURL=new-style.css.map */
