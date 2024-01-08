@@ -45,7 +45,7 @@ if ( apply_filters( 'stm_equip_single', false ) ) {
 							 $current_url = home_url( $_SERVER['REQUEST_URI'] );
 							 $layout_param = filter_input( INPUT_GET, 'stm-layout', FILTER_SANITIZE_STRING );
 
-							 if ( 'leasing' == $layout_param ) {
+							 if ( in_array( $layout_param,['leasing','leasing_van'] )) {
 
 								\Motors_E_W\Helpers\TemplateManagerLeasingChild::motors_display_template_leasing();
 							} elseif ( 'van' == $layout_param ) {
