@@ -672,11 +672,26 @@
 }
 
 .leasing-price {
-    border: 1px solid #0073aa;
-   div {
-	  border: 1px solid #0073aa;
+   div div {
+	border: 1px solid #51b7e8;
+	 width: 50%;
+	     padding-left: 3px;
+	 font-size: 11px;
+	 display: flex;
+    align-items: center;
+	 padding-top: 3px;
+    padding-bottom: 3px;
    }
-    /* padding: 10px; */
+}
+.santandermonthlyheader {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+}
+.santandermonthlyheader2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 
