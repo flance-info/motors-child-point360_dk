@@ -45,6 +45,10 @@ $vars = array(
 		'car_price_form_label'  => $car_price_form_label,
 		'van_price'             => $van_price,
 );
+
+$add_van      = get_post_meta( $_id, 'stm_add_van', true );
+$stm_van_vat      = get_post_meta( $_id, 'stm_van_vat', true );
+
 ?>
 
 <div class="stm-form-price-edit">
@@ -56,7 +60,7 @@ $vars = array(
 					<span><?php esc_html_e( 'Yes', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="yes" name="stm_add_van">
+							<input type="radio" <?php echo ($add_van == 'yes') ? 'checked' : ''; ?> value="yes" name="stm_add_van">
 						</span>
 					</div>
 
@@ -67,7 +71,7 @@ $vars = array(
 					<span><?php esc_html_e( 'No', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="no" name="stm_add_van">
+							<input type="radio" <?php echo ($add_van == 'no') ? 'checked' : ''; ?> value="no" name="stm_add_van">
 						</span>
 					</div>
 
@@ -82,7 +86,7 @@ $vars = array(
 					<span><?php esc_html_e( 'Van with Vat', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="yes" name="stm_van_vat">
+							<input type="radio" <?php echo ($stm_van_vat == 'yes') ? 'checked' : ''; ?> value="yes" name="stm_van_vat">
 						</span>
 					</div>
 
@@ -93,7 +97,7 @@ $vars = array(
 					<span><?php esc_html_e( 'Van without Vat', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="no" name="stm_van_vat">
+							<input type="radio" <?php echo ($stm_van_vat == 'no') ? 'checked' : ''; ?> value="no" name="stm_van_vat">
 						</span>
 					</div>
 
