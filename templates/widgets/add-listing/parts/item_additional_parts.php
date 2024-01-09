@@ -15,6 +15,8 @@ if ( $display_section === false ) {
 	return;
 }
 $choices = get_parts_choices();
+$selected = get_post_meta($_id, 'control_stm-transport-parts', true);
+$selected = explode(',', $selected);
 ?>
 <div class="stm_add_car_form_1">
 	<div class="stm-car-listing-data-single stm-border-top-unit ">
@@ -71,7 +73,52 @@ $choices = get_parts_choices();
 		</script>
 
 	<?php else: ?>
+	<div id="butterbean-manager-stm_car_manager" class="butterbean-manager butterbean-manager-default">
+		<div id="butterbean-stm_car_manager-section-stm_additional_parts" class="butterbean-section butterbean-section-default" aria-hidden="false">
 
+			<div id="butterbean-control-control_stm-transport-parts" class="butterbean-control butterbean-control-multiselect">
+				<div class="stm-multiselect-wrapper">
+
+					<div class="labels">
+						<div class="select-from-label">
+
+							<span class="butterbean-label"><?php esc_html_e( 'Parts', 'motors-child' ); ?></span>
+
+						</div>
+
+						<div class="select-to-label">
+
+							<span class="butterbean-label"><?php esc_html_e( 'Selected Parts', 'motors-child' ); ?></span>
+
+						</div>
+
+					</div>
+
+					<select class="stm-multiselect has-value" multiple="multiple" name="stm_parts[]" id="496multiselect" style="position: absolute; left: -9999px;">
+						<?php foreach ($choices as $k=>$v): ?>
+						<option <?php if (in_array($k, $selected)) echo 'selected'; ?> value="<?php echo esc_attr($k); ?>"><?php  echo $v; ?></option>
+						<?php endforeach; ?>
+					</select>
+
+					<div class="stm_add_new_optionale">
+						<div class="stm_add_new_inner">
+							<input placeholder="Add new" value="">
+							<i class="fas fa-plus"></i>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+		<script>
+			jQuery(document).ready(function ($) {
+				var $example = $(".stm-multiselect").select2();
+				setTimeout(function () {
+					$example.select2('destroy');
+				}, 1000);
+			});
+		</script>
 
 	<?php endif; ?>
 
