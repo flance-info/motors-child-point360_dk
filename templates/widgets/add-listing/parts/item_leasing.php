@@ -13,6 +13,10 @@ if ( in_array( 'administrator', $current_user->roles ) || in_array( 'stm_dealer'
 if ( $display_section === false ) {
 	return;
 }
+
+$stm_add_leasing = get_post_meta($_id, 'stm_add_leasing', true);
+$stm_car_leasing_vat = get_post_meta($_id, 'stm_car_leasing_vat', true);
+$stm_van_leasing_vat = get_post_meta($_id, 'stm_van_leasing_vat', true);
 ?>
 <div class="stm-form-leasing-edit">
 	<div class="stm-car-listing-data-single stm-border-top-unit stm-row-flex">
@@ -23,7 +27,7 @@ if ( $display_section === false ) {
 					<span><?php esc_html_e( 'Yes', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="yes" name="stm_add_leasing">
+							<input type="radio" <?php echo ($stm_add_leasing == 'yes') ? 'checked' : ''; ?> value="yes" name="stm_add_leasing">
 						</span>
 					</div>
 
@@ -34,7 +38,7 @@ if ( $display_section === false ) {
 					<span><?php esc_html_e( 'No', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="no" name="stm_add_leasing">
+							<input type="radio" <?php echo ($stm_add_leasing == 'no') ? 'checked' : ''; ?> value="no" name="stm_add_leasing">
 						</span>
 					</div>
 
@@ -49,7 +53,7 @@ if ( $display_section === false ) {
 					<span><?php esc_html_e( 'Car incl. VAT', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="yes" name="stm_car_leasing_vat">
+							<input type="radio" <?php echo ($stm_car_leasing_vat == 'yes') ? 'checked' : ''; ?> value="yes" name="stm_car_leasing_vat">
 						</span>
 					</div>
 
@@ -60,7 +64,7 @@ if ( $display_section === false ) {
 					<span><?php esc_html_e( 'Car plus. VAT', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="no" name="stm_car_leasing_vat">
+							<input type="radio" <?php echo ($stm_car_leasing_vat == 'no') ? 'checked' : ''; ?> value="no" name="stm_car_leasing_vat">
 						</span>
 					</div>
 
@@ -71,7 +75,7 @@ if ( $display_section === false ) {
 					<span><?php esc_html_e( 'Van incl. VAT', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="no" name="stm_van_leasing_vat">
+							<input type="radio" <?php echo ($stm_van_leasing_vat == 'yes') ? 'checked' : ''; ?> value="yes" name="stm_van_leasing_vat">
 						</span>
 					</div>
 
@@ -82,7 +86,7 @@ if ( $display_section === false ) {
 					<span><?php esc_html_e( 'Van excl. VAT', 'motors-child' ); ?></span>
 					<div class="checker">
 						<span>
-							<input type="radio" value="no" name="stm_van_leasing_vat">
+							<input type="radio" <?php echo ($stm_van_leasing_vat == 'no') ? 'checked' : ''; ?> value="no" name="stm_van_leasing_vat">
 						</span>
 					</div>
 

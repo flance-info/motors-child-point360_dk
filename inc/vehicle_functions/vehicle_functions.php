@@ -4,9 +4,17 @@ add_filter( 'stm_add_car_validation', 'stm_child_replace_add_listing_notificatio
 function stm_child_replace_add_listing_notifications_item( $validation ) {
 	$custom_listing_type = esc_attr( $_REQUEST['custom_listing_type'] );
 	$stm_edit            = esc_attr( $_REQUEST['stm_edit'] );
+
+	if ( stm_me_get_wpcfto_mod( 'enable_plans', false ) && stm_is_multiple_plans() && 'edit-ppl' === $_POST['btn-type'] ) {
+		if ( empty( $_POST['selectedPlan'] ) ) {
+			$validation['error']               = false;
+		}
+	}
 	if ( ! empty( $custom_listing_type ) || $stm_edit == 'update' ) {
 		return $validation;
 	}
+
+
 	$check_plans = [
 		'stm_set_pricing_option' => esc_html( 'Plan Point 1, Point 2 Or Point 3', 'motors-child' ),
 		'stm_pricing_option'     => esc_html( 'Plan Point360.dk or DBA & Billbasen', 'motors-child' ),
