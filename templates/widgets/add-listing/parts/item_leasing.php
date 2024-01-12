@@ -132,6 +132,18 @@ if ($custom_listing_type && $listing_types_options) {
 
 $_taxonomy = (!$_taxonomy) ? array() : $_taxonomy;
 
+
+$leasing_van_price                = '';
+$leasing_car_price          = '';
+
+if ( ! empty( $_id ) ) {
+	$leasing_van_price                = (int) getConverPrice( get_post_meta( $_id, 'leasing_van_price', true ) );
+	$leasing_car_price                = (int) getConverPrice( get_post_meta( $_id, 'leasing_car_price', true ) );
+}
+$vars = array(
+		'leasing_van_price'             => $leasing_van_price,
+		'leasing_car_price'             => $leasing_car_price,
+);
 ?>
 <div class="stm_add_car_form_1 stm-leasing-box">
 
@@ -241,6 +253,16 @@ $_taxonomy = (!$_taxonomy) ? array() : $_taxonomy;
 
 
 		<?php endif; ?>
+
+	</div>
+	<div class="stm_add_car_form">
+		<div class="stm-form-price-edit">
+			<div class="row stm-relative">
+				<?php
+				STM_E_W\Helpers\Helper::stm_ew_load_template( 'widgets/add-listing/parts/item_price_templates/leasing_price', MOTORS_ELEMENTOR_WIDGETS_PATH, $vars );
+				?>
+			</div>
+		</div>
 	</div>
 </div>
 

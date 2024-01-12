@@ -3,7 +3,7 @@
 		<div class="stm_label heading-font"><?php esc_html_e( 'Price', 'motors-elementor-widgets' ); ?>*
 			(<?php echo wp_kses_post( stm_get_price_currency() ); ?>)
 		</div>
-		<input type="number" class="heading-font" name="stm_van_price" value="<?php echo esc_attr( $price ); ?>" required/>
+		<input type="number" class="heading-font" name="stm_van_price" value="<?php echo esc_attr( $van_price ); ?>" required/>
 	</div>
 </div>
 
