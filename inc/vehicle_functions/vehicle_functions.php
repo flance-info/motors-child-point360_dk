@@ -51,6 +51,7 @@ add_filter( 'stm_listing_save_post_meta', function ( $meta, $post_id, $update ) 
 	$custom_metas = [
 		'stm_van_price', 'stm_add_leasing',  'stm_car_leasing_vat',
 		'stm_van_leasing_vat', 'stm_add_van', 'stm_van_vat', 'stm_parts',
+		'stm_leasing_van_price', 'stm_leasing_car_price',
 	];
 
 	foreach ( $custom_metas as $custom_meta  ) {

@@ -273,6 +273,31 @@ function stm_listings_register_manager_child( $butterbean, $post_type ) {
 			),
 		)
 	);
+	$manager->register_control(
+		'stm_leasing_car_price',
+		array(
+			'type'    => 'text',
+			'section' => 'stm_price',
+			'preview' => 'price',
+			'label'   => esc_html__( 'Leasing Car Price', 'motors-child' ),
+			'attr'    => array(
+				'class' => 'widefat',
+			),
+		)
+	);
+$manager->register_control(
+		'stm_leasing_van_price',
+		array(
+			'type'    => 'text',
+			'section' => 'stm_price',
+			'preview' => 'price',
+			'label'   => esc_html__( 'Leasing Van Price', 'motors-child' ),
+			'attr'    => array(
+				'class' => 'widefat',
+			),
+		)
+	);
+
 
     if ( function_exists( 'stm_is_equipment' ) && stm_is_equipment() ) {
         /*Price*/

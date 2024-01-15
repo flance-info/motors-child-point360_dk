@@ -137,12 +137,12 @@ $leasing_van_price                = '';
 $leasing_car_price          = '';
 
 if ( ! empty( $_id ) ) {
-	$leasing_van_price                = (int) getConverPrice( get_post_meta( $_id, 'leasing_van_price', true ) );
-	$leasing_car_price                = (int) getConverPrice( get_post_meta( $_id, 'leasing_car_price', true ) );
+	$stm_leasing_van_price                = (int) getConverPrice( get_post_meta( $_id, 'stm_leasing_van_price', true ) );
+	$stm_leasing_car_price                = (int) getConverPrice( get_post_meta( $_id, 'stm_leasing_car_price', true ) );
 }
 $vars = array(
-		'leasing_van_price'             => $leasing_van_price,
-		'leasing_car_price'             => $leasing_car_price,
+		'stm_leasing_van_price'             => $stm_leasing_van_price,
+		'stm_leasing_car_price'             => $stm_leasing_car_price,
 );
 ?>
 <div class="stm_add_car_form_1 stm-leasing-box">
