@@ -840,6 +840,18 @@ $manager->register_setting(
             'sanitize_callback' => 'wp_filter_nohtml_kses',
         )
     );
+$manager->register_setting(
+        'stm_leasing_van_price',
+        array(
+            'sanitize_callback' => 'wp_filter_nohtml_kses',
+        )
+    );
+$manager->register_setting(
+        'stm_leasing_car_price',
+        array(
+            'sanitize_callback' => 'wp_filter_nohtml_kses',
+        )
+    );
 
     $manager->register_setting(
         'stm_genuine_price',

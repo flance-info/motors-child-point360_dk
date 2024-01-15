@@ -32,7 +32,7 @@ $van_price            = '';
 if ( ! empty( $_id ) ) {
 	$car_price_form_label = get_post_meta( $_id, 'car_price_form_label', true );
 	$price                = (int) getConverPrice( get_post_meta( $_id, 'price', true ) );
-	$van_price            = (int) getConverPrice( get_post_meta( $_id, 'van_price', true ) );
+	$van_price            = (int) getConverPrice( get_post_meta( $_id, 'stm_van_price', true ) );
 	$sale_price           = ( ! empty( get_post_meta( $_id, 'sale_price', true ) ) ) ? (int) getConverPrice( get_post_meta( $_id, 'sale_price', true ) ) : '';
 }
 $vars = array(
