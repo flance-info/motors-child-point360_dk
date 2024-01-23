@@ -123,6 +123,7 @@ if ( $dealer ) :
 					$btn_type = ( ! empty( get_post_meta( $_id, 'pay_per_listing', true ) ) ) ? 'edit-ppl' : $btn_type;
 					?>
 					<!-- <li class="btn-add-edit"> !-->
+					<?php if ( $post_id !== 1755 ) : ?>
 					<li class="btn-add-edit">
 						<button type="submit" class="heading-font enabled" data-load="<?php echo esc_attr( $btn_type ); ?>"
 							<?php
@@ -134,11 +135,23 @@ if ( $dealer ) :
 							<?php if ( ! empty( $_id ) ) : ?>
 								<i class="stm-service-icon-add_check"></i><?php esc_html_e( 'Edit Listing', 'motors-elementor-widgets' ); ?>
 							<?php else : ?>
+
 								<i class="stm-service-icon-add_check"></i><?php esc_html_e( 'Submit listing', 'motors-elementor-widgets' ); ?>
+
 							<?php endif; ?>
 						</button>
 						<span class="stm-add-a-car-loader add"><i class="stm-icon-load1"></i></span>
 					</li>
+				<?php else: ?>
+				<?php if ( ! empty( $_id ) ) : ?>
+				<li class="btn-add-edit">
+						<button type="submit" class="heading-font enabled" data-load="<?php echo esc_attr( $btn_type ); ?>">
+								<i class="stm-service-icon-add_check"></i><?php esc_html_e( 'Edit Listing', 'motors-elementor-widgets' ); ?>
+						</button>
+						<span class="stm-add-a-car-loader add"><i class="stm-icon-load1"></i></span>
+				</li>
+				<?php endif; ?>
+				<?php endif; ?>
 				<?php endif; ?>
 				<?php if ( $dealer_ppl && empty( $_id ) ) : ?>
 					<li class="btn-ppl">
@@ -146,11 +159,11 @@ if ( $dealer ) :
 								data-load="pay"
 							<?php
 							if ( empty( $_id ) ) {
-								echo 'data-toggle="tooltip" data-placement="top" title="' . esc_html__( 'Pay for this Listing', 'motors-elementor-widgets' ) . '"';
+								echo 'data-toggle="tooltip" data-placement="top" title="' . esc_html__( 'OPRET KØRETØJ', 'motors-child' ) . '"';
 							}
 							?>
 						>
-							<i class="stm-service-icon-payment_listing"></i><?php esc_html_e( 'Pay for Listing', 'motors-elementor-widgets' ); ?>
+							<i class="stm-service-icon-payment_listing"></i><?php esc_html_e( 'OPRET KØRETØJ', 'motors-child' ); ?>
 						</button>
 						<span class="stm-add-a-car-loader pay"><i class="stm-icon-load1"></i></span>
 					</li>
