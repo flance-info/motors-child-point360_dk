@@ -694,6 +694,39 @@
     font-weight: 500;
 }
 
+.stm-login-display{
+  display: none;
+}
+.stm-login-hide{
+  display: block;
+}
+.stm-form-checking-user .stm-form-inner .stm-icon-load1 {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    font-size: 30px;
+    color: rgba(156,193,74,1);
+    animation: rotating 2s infinite linear;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 50;
+}
+.stm_motors_listing_types_multilisting_active .stm_add_car_form .stm-form-checking-user .stm-form-inner .stm-icon-load1 {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    font-size: 30px;
+    color: rgba(156,193,74,1);
+    animation: rotating 2s infinite linear;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 50;
+}
+
 
 
 

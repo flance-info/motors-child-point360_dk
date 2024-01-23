@@ -167,3 +167,15 @@ function get_points_plan($listing_id) {
 	}
 	return $lowercase_sku;
 }
+
+if ( ! is_admin() ) {
+
+	if ( !defined( 'ULISTING_VERSION' ) ) {
+			add_action( 'wp_enqueue_scripts', 'stm_load_theme_ss_child' );
+	}
+}
+function stm_load_theme_ss_child() {
+	if ( ! stm_is_auto_parts() && ! stm_is_rental_two() ) {
+		wp_enqueue_script( 'stm-theme-scripts-ajax-child', get_theme_file_uri( '/assets/js/app-ajax-child.js' ), array( 'jquery', 'stm-theme-scripts-ajax' ), time(), true );
+	}
+}
