@@ -50,11 +50,14 @@ $current_url  = home_url( $_SERVER['REQUEST_URI'] );
 $layout_param = filter_input( INPUT_GET, 'stm-layout', FILTER_SANITIZE_STRING );
 
 $van_price      = get_post_meta( $listing_id, 'stm_van_price', true );
+$stm_van_vat      = get_post_meta( $listing_id, 'stm_van_vat', true );
+$van_with_text = '';
 
 if ( 'van' == $layout_param ){
     $price           = $van_price;
 	$show_price = (!empty($price)) ? true : false;
    $show_sale_price = false;
+  $van_with_text = ($stm_van_vat == 'yes')? esc_html__('Van with Vat', 'motors-child') : esc_html__( 'Van without Vat', 'motors-child' );
 }
 
 if ( stm_is_dealer_two() ) {
@@ -101,7 +104,11 @@ if ( $show_price && ! $show_sale_price ) { ?>
                 <span class="h3">
 					<?php echo esc_attr( stm_listing_price_view( $price ) ); ?>
 				</span>
-            <?php endif; ?><br/><span class="labeled"><?php esc_html_e( '(K&oslash;ret&oslash;jets Grundpris)', 'motors' ); ?></span><br/>
+            <?php endif; ?><br/>
+			<span class="labeled"><?php esc_html_e( '(K&oslash;ret&oslash;jets Grundpris)', 'motors' ); ?></span>
+			<br/>
+			<span class="labeled" style="font-weight: bold;"><?php echo $van_with_text ?></span>
+			<br/>
         </div>
     </div>
 
